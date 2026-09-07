@@ -429,6 +429,14 @@ nav a {
   <strong>Rp15.000</strong>
   <button>🛒 Tambah ke Keranjang</button>
 </div>
+
+  <div class="produk-card">
+  <img src="ayam.jpeg" alt="Kaos Rafa" width="250">
+  <h3>Kaos Rafa</h3>
+  <p>Kaos nyaman dan keren.</p>
+  <strong>Rp50.000</strong>
+  <button>🛒 Tambah ke Keranjang</button>
+</div>  
        
   <a href="https://wa.me/6283843837197"
      style="display:inline-block;background:#25D366;color:white;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:bold;">
@@ -452,32 +460,68 @@ nav a {
   
    
 <script>
-let jumlah = 0;
+let keranjang = {};
 
-document.querySelectorAll('.produk-card button').forEach(function(tombol) {
+document.querySelectorAll('.produk-card').forEach(function(produk) {
+  let tombol = produk.querySelector('button');
+  let nama = produk.querySelector('h3').textContent;
+  let harga = parseInt(produk.querySelector('strong').textContent.replace(/\D/g, ''));
+
   tombol.addEventListener('click', function() {
-    jumlah++;
+    if (!keranjang[nama]) {
+      keranjang[nama] = {
+        harga: harga,
+        jumlah: 0
+      };
+    }
 
-    document.getElementById('keranjang').innerHTML =
-      '<h2>🛒 Keranjang</h2>' +
-      '<p>Ayam Kentucky Rafa × ' + jumlah + '</p>' +
-      '<strong>Total: Rp' + (jumlah * 15000).toLocaleString('id-ID') + '</strong>' +
-      '<br><br>' +
-      '<button onclick="checkoutWhatsApp()">📱 Checkout via WhatsApp</button>';
+    keranjang[nama].jumlah++;
+    tampilkanKeranjang();
   });
 });
 
+function tampilkanKeranjang() {
+  let isi = '<h2>🛒 Keranjang</h2>';
+  let total = 0;
+
+  for (let nama in keranjang) {
+    let item = keranjang[nama];
+    let subtotal = item.harga * item.jumlah;
+    total += subtotal;
+
+    isi += '<p>' + nama + ' × ' + item.jumlah +
+           ' — Rp' + subtotal.toLocaleString('id-ID') + '</p>';
+  }
+
+  isi += '<strong>Total: Rp' + total.toLocaleString('id-ID') + '</strong>';
+  isi += '<br><br>';
+  isi += '<button onclick="checkoutWhatsApp()">📱 Checkout via WhatsApp</button>';
+
+  document.getElementById('keranjang').innerHTML = isi;
+}
+
 function checkoutWhatsApp() {
-  let total = jumlah * 15000;
+  let pesan = 'Halo Toko Rafa 👋%0A%0ASaya mau pesan:%0A';
+  let total = 0;
 
-  let pesan = 'Halo Toko Rafa 👋%0A%0A' +
-              'Saya mau pesan:%0A' +
-              'Ayam Kentucky Rafa × ' + jumlah + '%0A' +
-              'Total: Rp' + total.toLocaleString('id-ID');
+  for (let nama in keranjang) {
+    let item = keranjang[nama];
+    let subtotal = item.harga * item.jumlah;
+    total += subtotal;
 
-  window.open('https://wa.me/6283843837197?text=' + pesan, '_blank');
+    pesan += '- ' + nama + ' × ' + item.jumlah +
+             ' = Rp' + subtotal.toLocaleString('id-ID') + '%0A';
+  }
+
+  pesan += '%0ATotal: Rp' + total.toLocaleString('id-ID');
+
+  window.open(
+    'https://wa.me/6283843837197?text=' + pesan,
+    '_blank'
+  );
 }
 </script>
+    
     <div id="keranjang">
   <h2>🛒 Keranjang</h2>
   <p>Belum ada produk.</p>
