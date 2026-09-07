@@ -345,13 +345,106 @@ nav a {
     <h1>TOKO RAFA</h1>
     <p>Selamat datang di toko kami</p>
   </header>
+<!-- TOMBOL KERANJANG -->
+<div class="keranjang-box">
+  🛒 Keranjang: <span id="jumlahKeranjang">0</span> barang
+  <div id="totalKeranjang">Total: Rp0</div>
+  <button onclick="lihatKeranjang()" class="btn-keranjang">
+    🛒 Lihat Keranjang
+  </button>
+</div>
 
+<script>
+let keranjang = [];
+
+function tambahKeranjang(nama, harga) {
+  keranjang.push({
+    nama: nama,
+    harga: harga
+  });
+
+  updateKeranjang();
+}
+
+function updateKeranjang() {
+  document.getElementById("jumlahKeranjang").innerText =
+    keranjang.length;
+
+  let total = keranjang.reduce(
+    (jumlah, barang) => jumlah + barang.harga, 0
+  );
+
+  document.getElementById("totalKeranjang").innerText =
+    "Total: Rp" + total.toLocaleString("id-ID");
+}
+
+function lihatKeranjang() {
+  if (keranjang.length === 0) {
+    alert("Keranjang masih kosong 🛒");
+    return;
+  }
+
+  let isi = "ISI KERANJANG:\n\n";
+
+  keranjang.forEach((barang, index) => {
+    isi += (index + 1) + ". " +
+      barang.nama + " - Rp" +
+      barang.harga.toLocaleString("id-ID") + "\n";
+  });
+
+  let total = keranjang.reduce(
+    (jumlah, barang) => jumlah + barang.harga, 0
+  );
+
+  isi += "\nTOTAL: Rp" +
+    total.toLocaleString("id-ID");
+
+  alert(isi);
+}
+</script>
+
+<style>
+.keranjang-box {
+  margin: 15px 0;
+  padding: 15px;
+  text-align: center;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,.12);
+  font-weight: bold;
+}
+
+#jumlahKeranjang {
+  font-size: 20px;
+}
+
+#totalKeranjang {
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+.btn-keranjang {
+  border: none;
+  padding: 11px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
+  
   <div class="produk" id="produk">
     <img src="produk.jpeg" width="250">
     <h2>Produk Kami</h2>
     <img src="ayam.jpeg" width="250">
 <h3>Ayam Kentucky Rafa</h3>
+    <button onclick="tambahKeranjang('Ayam Kentaki', 10000)">
+  🛒 Tambah ke Keranjang
+</button>
 <p>Ayam crispy, gurih dan renyah.</p>
+    <button onclick="tambahKeranjang('Ayam Crispy', 15000)">
+  🛒 Tambah ke Keranjang
+</button>
+    
 <p>Harga: Rp15.000</p>
     <p>Produk pertama</p>
     <p>Harga: Rp10.000</p>
