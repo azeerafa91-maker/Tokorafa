@@ -665,6 +665,29 @@ function checkoutWhatsApp() {
   <h2>🛒 Keranjang</h2>
   <p>Belum ada produk.</p>
 </div>
+     
+   <script>
+function filterProduk(kategori) {
+  const produk = document.querySelectorAll('.produk-card');
+
+  produk.forEach(function(item) {
+    if (kategori === 'semua' ||
+        item.getAttribute('data-kategori') === kategori) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+</script>  
+
+    <div class="kategori">
+  <button>🍗 Makanan</button>
+  <button>👕 Fashion</button>
+  <button>📱 Elektronik</button>
+  <button>🏠 Rumah</button>
+  <button>🔥 Promo</button>
+</div> 
     
 </body>
 </html>
