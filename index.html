@@ -153,6 +153,30 @@ nav a {
 .market-menu button:hover {
   background: #ddd;
 }
+   #produk {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 10px;
+}
+
+#produk .produk-card {
+  margin: 0;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+#produk .produk-card img {
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Layar besar */
+@media (min-width: 768px) {
+  #produk {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 
   </style>
 </head>
 
