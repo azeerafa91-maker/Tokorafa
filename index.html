@@ -450,7 +450,8 @@ nav a {
 </div,> 
 
   
-   <script>
+   
+<script>
 let jumlah = 0;
 
 document.querySelectorAll('.produk-card button').forEach(function(tombol) {
@@ -460,11 +461,23 @@ document.querySelectorAll('.produk-card button').forEach(function(tombol) {
     document.getElementById('keranjang').innerHTML =
       '<h2>🛒 Keranjang</h2>' +
       '<p>Ayam Kentucky Rafa × ' + jumlah + '</p>' +
-      '<strong>Total: Rp' + (jumlah * 15000).toLocaleString('id-ID') + '</strong>';
+      '<strong>Total: Rp' + (jumlah * 15000).toLocaleString('id-ID') + '</strong>' +
+      '<br><br>' +
+      '<button onclick="checkoutWhatsApp()">📱 Checkout via WhatsApp</button>';
   });
 });
-</script> 
 
+function checkoutWhatsApp() {
+  let total = jumlah * 15000;
+
+  let pesan = 'Halo Toko Rafa 👋%0A%0A' +
+              'Saya mau pesan:%0A' +
+              'Ayam Kentucky Rafa × ' + jumlah + '%0A' +
+              'Total: Rp' + total.toLocaleString('id-ID');
+
+  window.open('https://wa.me/6283843837197?text=' + pesan, '_blank');
+}
+</script>
     <div id="keranjang">
   <h2>🛒 Keranjang</h2>
   <p>Belum ada produk.</p>
