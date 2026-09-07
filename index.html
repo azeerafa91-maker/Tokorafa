@@ -363,6 +363,22 @@ nav a {
   border-radius: 25px;
   cursor: pointer;
 } 
+  .kategori {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: white;
+  overflow-x: auto;
+}
+
+.kategori button {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: #f1f1f1;
+  white-space: nowrap;
+  font-size: 14px;
+}
 </style>
  </head>
 
@@ -379,7 +395,15 @@ nav a {
    <div class="search-box">
   <input type="text" placeholder="🔎 Cari produk di Toko Rafa...">
   <button>Cari</button>
-</div 
+   </div>
+
+   <div class="kategori">
+  <button>🍗 Makanan</button>
+  <button>👕 Fashion</button>
+  <button>📱 Elektronik</button>
+  <button>🏠 Rumah</button>
+  <button>🔥 Promo</button>
+</div> 
 
   <header>
     <h1>TOKO RAFA</h1>
