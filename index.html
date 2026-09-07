@@ -362,6 +362,29 @@ nav a {
     padding: 8px 2px;
   }
 }
+ .search-box {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px;
+  background: white;
+}
+
+.search-box input {
+  width: 70%;
+  max-width: 400px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.search-box button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+} 
 </style>
  </head>
 
@@ -373,7 +396,12 @@ nav a {
   <button>🔥 Promo</button>
   <button>📱 WhatsApp</button>
   <button>🛒 Keranjang</button>
-</div>  
+</div> 
+
+   <div class="search-box">
+  <input type="text" placeholder="🔎 Cari produk di Toko Rafa...">
+  <button>Cari</button>
+</div 
 
   <header>
     <h1>TOKO RAFA</h1>
