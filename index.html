@@ -449,16 +449,21 @@ nav a {
   </a>
 </div,> 
 
+  
    <script>
 let jumlah = 0;
 
 document.querySelectorAll('.produk-card button').forEach(function(tombol) {
   tombol.addEventListener('click', function() {
     jumlah++;
-    alert('Produk masuk ke keranjang! Jumlah: ' + jumlah);
+
+    document.getElementById('keranjang').innerHTML =
+      '<h2>🛒 Keranjang</h2>' +
+      '<p>Ayam Kentucky Rafa × ' + jumlah + '</p>' +
+      '<strong>Total: Rp' + (jumlah * 15000).toLocaleString('id-ID') + '</strong>';
   });
-}); 
-</script>
+});
+</script> 
 
     <div id="keranjang">
   <h2>🛒 Keranjang</h2>
