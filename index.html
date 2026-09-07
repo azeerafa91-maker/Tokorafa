@@ -447,6 +447,18 @@ nav a {
      style="display:inline-block;background:#25D366;color:white;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:bold;">
     Chat WhatsApp
   </a>
-</div>
+</div,> 
+
+   <script>
+let jumlah = 0;
+
+document.querySelectorAll('.produk-card button').forEach(function(tombol) {
+  tombol.addEventListener('click', function() {
+    jumlah++;
+    alert('Produk masuk ke keranjang! Jumlah: ' + jumlah);
+  });
+});
+</script>
+    
 </body>
 </html>
