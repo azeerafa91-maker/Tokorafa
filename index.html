@@ -583,21 +583,19 @@ nav a {
   <div class="produk" id="produk">
   <img src="produk.jpeg" width="250">
 
-  <h2>Produk Kami</h2>
+ <h2>Produk Kami</h2>
 
-   <div class="produk-card" data-kategori="makanan"> 
-
-    <div class="produk-card" id="makanan">
-  <img src="ayam.jpeg" alt="Ayam Kentucky Rafa"width="250">
+<div class="produk-card" data-kategori="makanan">
+  <img src="ayam.jpeg" alt="Ayam Kentucky Rafa" width="250">
   <h3>Ayam Kentucky Rafa</h3>
   <p>Ayam crispy, gurih dan renyah.</p>
   <strong>Rp15.000</strong>
-  <button>🛒 Tambah ke Keranjang</button>
+  <button onclick="tambahKeranjang('Ayam Kentucky Rafa')">
+    🛒 Tambah ke Keranjang
+  </button>
 </div>
 
-    <div class="produk-card" data-kategori="fashion">
-      
-  <div class="produk-card" id="fashion">
+<div class="produk-card" data-kategori="fashion">
   <img src="baju.jpeg" alt="Kaos Rafa" width="250">
   <h3>Kaos Rafa</h3>
   <p>Kaos nyaman dan keren.</p>
@@ -605,26 +603,29 @@ nav a {
   <button onclick="tambahKeranjang('Kaos Rafa')">
     🛒 Tambah ke Keranjang
   </button>
-</div> 
-   <div class="produk-card">
+</div>
+
+<div class="produk-card">
   <img src="affiliate.jpeg.png" alt="Produk Rekomendasi" width="250">
-     
-<a href="https://s.shopee.co.id/1Vz0bMgj1Y" target="_blank"
-style="display:inline-block; background:#25D366; color:white; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:bold;">
-🛒 Lihat Produk
-</a>
-    <div class="produk-card">
-      
-<img src="lipstik.jpeg.png" alt="OMG Coffee Edition Mate Kiss Lip" width="250">
-      
+
+  <a href="https://s.shopee.co.id/1Vz0bMgj1Y" target="_blank"
+     style="display:inline-block; background:#25D366; color:white; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:bold;">
+    🛒 Lihat Produk
+  </a>
+</div>
+
+<div class="produk-card">
+  <img src="lipstik.jpeg.png" alt="OMG Coffee Edition Mate Kiss Lip" width="250">
+
   <h3>OMG Coffee Edition Mate Kiss Lip</h3>
   <p>Lipstik OMG dengan pilihan warna cantik.</p>
 
   <a href="https://s.shopee.co.id/7AdNMLXtUy" target="_blank"
-  style="display:inline-block; background:#25D366; color:white; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:bold;">
+     style="display:inline-block; background:#25D366; color:white; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:bold;">
     🛒 Lihat Produk
   </a>
-</div>
+</div> 
+
 <div id="kontak" style="text-align:center; margin:30px auto;">
   <h2>Kontak Kami</h2>
   <p>Pesan produk melalui WhatsApp</p>
