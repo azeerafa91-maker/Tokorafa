@@ -612,7 +612,7 @@ nav a {
   🍗 Makanan
 </button>
   
-  <button onclick="filterProduk('fashion')">
+  <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
   👕 Fashion
 </button>
 
@@ -865,21 +865,7 @@ function filterProduk(kategori) {
   });
 }
     
-function filterProduk(kategori) {
-  const produk = document.querySelectorAll('.produk-card');
 
-  produk.forEach(function(item) {
-    if (item.dataset.kategori === kategori) {
-      item.style.display = '';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-
-  document.getElementById('produk').scrollIntoView({
-    behavior: 'smooth'
-  });
-}
 
 </script>
 
