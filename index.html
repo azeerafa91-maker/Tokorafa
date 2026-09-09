@@ -587,7 +587,14 @@ nav a {
   display: block;
   margin: 0 auto 10px;
 }
-.produk-card[data-kategori="kecantikan"] {
+  @media (max-width: 600px) {
+  .produk-card[data-kategori="kecantikan"] {
+    display: inline-block;
+    width: 48%;
+    margin: 10px 1%;
+    vertical-align: top;
+  }
+}
 
 </style>
 
