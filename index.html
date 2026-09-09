@@ -650,7 +650,7 @@ nav a {
  
     <div class="produk" id="produk">
    
-    <div class="produk-card" id="makanan" data-katagori="makanan">
+    <div class="produk-card" id="makanan" data-kategori="makanan">
        
   <img src="produk.jpeg" width="250">
      <h3>Ayam Crispy Rafa</h3> 
@@ -681,7 +681,7 @@ nav a {
   </button>
 </div>
 
-<div class="produk-card">
+<div class="produk-card" data-kategori="rumah">
   <img src="affiliate.jpeg.png" alt="moodle tumbler" width="250">
 <h3>moodle tumbler</h3>  
 <p> steanliss 710ml botol minuman</p>
@@ -873,7 +873,60 @@ function checkoutWhatsApp() {
     
      
    <script>
+// URUTKAN PRODUK BERDASARKAN KATEGORI
+document.addEventListener("DOMContentLoaded", function () {
 
+  const wadah = document.getElementById("produk");
+
+  if (!wadah) return;
+
+  const judul = {
+    makanan: "🍗 MAKANAN",
+    fashion: "👕 FASHION",
+    kecantikan: "💄 KECANTIKAN",
+    rumah: "🏠 RUMAH",
+    elektronik: "📱 ELEKTRONIK"
+  };
+
+  const urutan = [
+    "makanan",
+    "fashion",
+    "kecantikan",
+    "rumah",
+    "elektronik"
+  ];
+
+  const produk = Array.from(
+    wadah.querySelectorAll(".produk-card")
+  );
+
+  // Hapus judul kategori lama
+  wadah.querySelectorAll(".judul-kategori").forEach(function (item) {
+    item.remove();
+  });
+
+  urutan.forEach(function (kategori) {
+
+    const daftar = produk.filter(function (item) {
+      return item.dataset.kategori === kategori;
+    });
+
+    if (daftar.length === 0) return;
+
+    // Buat judul kategori
+    const h2 = document.createElement("h2");
+    h2.className = "judul-kategori";
+    h2.textContent = judul[kategori];
+
+    wadah.appendChild(h2);
+
+    // Masukkan produk sesuai kategori
+    daftar.forEach(function (item) {
+      wadah.appendChild(item);
+    });
+  });
+
+});
 
 
 </script>
