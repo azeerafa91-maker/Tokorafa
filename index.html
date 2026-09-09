@@ -900,34 +900,7 @@ document.addEventListener("DOMContentLoaded", function () {
     wadah.querySelectorAll(".produk-card")
   );
 
-  // Hapus judul kategori lama
-  wadah.querySelectorAll(".judul-kategori").forEach(function (item) {
-    item.remove();
-  });
-
-  urutan.forEach(function (kategori) {
-
-    const daftar = produk.filter(function (item) {
-      return item.dataset.kategori === kategori;
-    });
-
-    if (daftar.length === 0) return;
-
-    // Buat judul kategori
-    const h2 = document.createElement("h2");
-    h2.className = "judul-kategori";
-    h2.textContent = judul[kategori];
-
-    wadah.appendChild(h2);
-
-    // Masukkan produk sesuai kategori
-    daftar.forEach(function (item) {
-      wadah.appendChild(item);
-    });
-  });
-
-});
-
+  
 
 </script>
 
