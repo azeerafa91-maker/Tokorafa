@@ -569,12 +569,22 @@ nav a {
   <body>
 
   <div class="market-menu">
-  <button>🏠 Beranda</button>
-  <button>🛍️ Produk</button>
- <button onclick="document.getElementById('promosi').scrollIntoView({behavior:'smooth'})">
-  🔥 Promo
-</button>
-  <button>📱 WhatsApp</button>
+
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    🏠 Beranda
+  </button>
+
+  <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
+    🛍️ Produk
+  </button>
+
+  <button onclick="document.getElementById('promosi').scrollIntoView({behavior:'smooth'})">
+    🔥 Promo
+  </button>
+
+  <button onclick="document.getElementById('kontak').scrollIntoView({behavior:'smooth'})">
+    📱 WhatsApp
+  </button>
 
 </div> 
 
