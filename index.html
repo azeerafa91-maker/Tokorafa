@@ -612,10 +612,9 @@ nav a {
   🍗 Makanan
 </button>
   
-
-  <button onclick="document.getElementById('fashion').scrollIntoView({behavior:'smooth'})">
-    👕 Fashion
-  </button>
+  <button onclick="filterProduk('fashion')">
+  👕 Fashion
+</button>
 
   <button onclick="document.getElementById('elektronik').scrollIntoView({behavior:'smooth'})">
     📱 Elektronik
@@ -865,6 +864,23 @@ function filterProduk(kategori) {
     }
   });
 }
+    
+function filterProduk(kategori) {
+  const produk = document.querySelectorAll('.produk-card');
+
+  produk.forEach(function(item) {
+    if (item.dataset.kategori === kategori) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  document.getElementById('produk').scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
 </script>
 
    <div id="keranjang">
