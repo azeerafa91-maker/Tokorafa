@@ -479,14 +479,6 @@ nav a {
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
-
-.produk-card img {
-  width: 100%;
-  max-width: 250px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
-
 .produk-card h3 {
   margin: 8px 0;
   font-size: 20px;
@@ -506,14 +498,6 @@ nav a {
   border-radius: 18px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.12);
 }
-
-.produk-card img {
-  display: block;
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  margin: 0 auto 10px;
-} 
   .produk-card button {
   background: #25D366;
   color: white;
@@ -574,19 +558,7 @@ nav a {
   top: auto !important;
 }
   .produk-card img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-}
-  .produk-card img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 10px;
-}
+  
   @media (max-width: 600px) {
   .produk-card[data-kategori="kecantikan"] {
     display: inline-block;
@@ -595,7 +567,15 @@ nav a {
     vertical-align: top;
   }
 }
-
+.produk-card img {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 12px;
+  }
 </style>
 
   
