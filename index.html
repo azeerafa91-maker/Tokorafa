@@ -735,7 +735,7 @@ nav a {
   </a>
 </div>  
   <h2 class="judul-kategori">💄 KECANTIKAN</h2>
-<div class="produk-card" id="kecantikan" data-kategori="kecantikan">
+<div class="produk-card" data-kategori="kecantikan">
   <img src="lipstik.jpeg.png" alt="OMG Coffee Edition Mate Kiss Lip" width="250">
 
   <h3>OMG Coffee Edition Mate Kiss Lip</h3>
@@ -947,7 +947,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const produk = Array.from(
     wadah.querySelectorAll(".produk-card")
   );
-
+.produk-card[data-kategori="kecantikan"] {
+  display: inline-block;
+  width: 45%;
+  max-width: 320px;
+  margin: 10px 1%;
+  padding: 15px;
+  box-sizing: border-box;
+  vertical-align: top;
+     }
   
 
 </script>
