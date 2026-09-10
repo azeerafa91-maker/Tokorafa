@@ -559,6 +559,15 @@ nav a {
   margin: 0 auto 10px;
   border-radius: 12px;
   }
+  .produk-card[data-kategori="kecantikan"] {
+  display: inline-block;
+  width: 45%;
+  max-width: 320px;
+  margin: 10px 1%;
+  padding: 15px;
+  box-sizing: border-box;
+  vertical-align: top;
+    }
 </style>
 
   
@@ -947,15 +956,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const produk = Array.from(
     wadah.querySelectorAll(".produk-card")
   );
-.produk-card[data-kategori="kecantikan"] {
-  display: inline-block;
-  width: 45%;
-  max-width: 320px;
-  margin: 10px 1%;
-  padding: 15px;
-  box-sizing: border-box;
-  vertical-align: top;
-     }
+
   
 
 </script>
