@@ -620,9 +620,32 @@ nav a {
 </div> 
 
    <div class="search-box">
-  <input type="text" placeholder="🔎 Cari produk di Toko Rafa...">
-  <button>Cari</button>
-   </div>
+  <input type="text" id="cariProduk" placeholder="🔎 Cari produk di Toko Rafa...">
+  <button onclick="cariProduk()">Cari</button>
+</div>
+
+<script>
+function cariProduk() {
+  let kata = document.getElementById("cariProduk").value.toLowerCase().trim();
+  let produk = document.querySelectorAll(".produk-card");
+  let ditemukan = false;
+
+  produk.forEach(function(item) {
+    let isi = item.innerText.toLowerCase();
+
+    if (kata === "" || isi.includes(kata)) {
+      item.style.display = "";
+      ditemukan = true;
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  if (!ditemukan && kata !== "") {
+    alert("Produk tidak ditemukan 😅");
+  }
+}
+</script>
 
    
 <div class="kategori">
