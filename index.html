@@ -626,26 +626,7 @@ nav a {
 
 <script>
 function cariProduk() {
-  let kata = document.getElementById("cariProduk").value.toLowerCase().trim();
-  let produk = document.querySelectorAll(".produk-card");
-  let ditemukan = false;
 
-  produk.forEach(function(item) {
-    let isi = item.innerText.toLowerCase();
-
-    if (kata === "" || isi.includes(kata)) {
-      item.style.display = "";
-      ditemukan = true;
-    } else {
-      item.style.display = "none";
-    }
-  });
-
-  if (!ditemukan && kata !== "") {
-    alert("Produk tidak ditemukan 😅");
-  }
-}
-</script>
 
    
 <div class="kategori">
@@ -795,15 +776,11 @@ function cariProduk() {
  <div class="kecantikan-grid" id="kecantikan">    
 
        
-    <div class="produk-card" data-kategori="kecantikan">
-  <img src="parfum.jpeg.png" alt="Parfum Wanita Inspired 35ml" width="250">
-  <h3>Parfum Beli 1 Dikirim 2</h3>
-  <p>Parfum inspired 35ml untuk wanita, dengan wangi tahan lama.</p>
-  <a href="https://s.shopee.co.id/40gMNTpkhP" target="_blank"
-  style="display:inline-block; background:#25D366; color:white; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:bold;">
-  🛒 tambaha ke kranjang
-  </a>
-   </div>
+   <img src="parfum.jpeg.png" alt="Parfum Wanita Inspired 35ml Wangi Tahan Lama" width="250">
+
+<h3>Parfum Wanita Inspired 35ml - Beli 1 Dikirim 2</h3>
+
+<p>Parfum wanita inspired 35ml dengan wangi tahan lama. Pilihan menarik untuk dipakai sehari-hari.</p>
     <div class="produk-card" data-kategori="kecantikan">
   <img src="pepaya.jpeg.png" alt="Pepaya" width="250">
   <h3>pepaya facial wash</h3>
@@ -1059,6 +1036,26 @@ document.addEventListener("DOMContentLoaded", function () {
 <div id="promo" style="margin:30px 10px; padding:20px; background:#fff3cd; border-radius:15px; text-align:center;">
   <h2>🔥 PROMO TOKO RAFA 🔥</h2>
   <p>Temukan berbagai produk pilihan dengan harga menarik!</p>
-</div>    
+</div>
+      let kata = document.getElementById("cariProduk").value.toLowerCase().trim();
+  let produk = document.querySelectorAll(".produk-card");
+  let ditemukan = false;
+
+  produk.forEach(function(item) {
+    let isi = item.innerText.toLowerCase();
+
+    if (kata === "" || isi.includes(kata)) {
+      item.style.display = "";
+      ditemukan = true;
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  if (!ditemukan && kata !== "") {
+    alert("Produk tidak ditemukan 😅");
+  }
+}
+  </script>
 </body>
 </html>
