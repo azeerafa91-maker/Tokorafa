@@ -959,38 +959,6 @@ function checkoutWhatsApp() {
 }
 </script>
 
-    <script>
-// URUTKAN PRODUK BERDASARKAN KATEGORI
-document.addEventListener("DOMContentLoaded", function () {
-
-  const wadah = document.getElementById("produk");
-
-  if (!wadah) return;
-
-  const urutan = [
-    "makanan",
-    "fashion",
-    "kecantikan",
-    "rumah",
-    "elektronik"
-  ];
-
-  const produk = Array.from(
-    wadah.querySelectorAll(".produk-card")
-  );
-
-  urutan.forEach(function(kategori) {
-    produk.forEach(function(item) {
-      if (item.dataset.kategori === kategori) {
-        wadah.appendChild(item);
-      }
-    });
-  });
-
-});
-    </script>
-     
-
    <div id="keranjang">
   <h2>🛒 Keranjang</h2>
   <p>Belum ada produk.</p>
