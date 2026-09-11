@@ -623,11 +623,6 @@ nav a {
   <input type="text" id="cariProduk" placeholder="🔎 Cari produk di Toko Rafa...">
   <button onclick="cariProduk()">Cari</button>
 </div>
-
-<script>
-function cariProduk() {
-
-
    
 <div class="kategori">
 <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
@@ -871,7 +866,7 @@ style="display:inline-block; background:#25D366; color:white; padding:12px 20px;
 <h3>headset bluetooth</h3>  
 <p> PRODUK VIRAL</p>
   
-  <a href="https://s.shopee.co.id/1Vz0bMgj1Y" target="_blank"
+
      <a href="https://s.shopee.co.id/1Vz5XHo2Ku" target="_blank"
 style="display:inline-block; background:#25D366; color:white; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:bold;">
 🛍️ Lihat di Shopee
@@ -963,24 +958,14 @@ function checkoutWhatsApp() {
   );
 }
 </script>
-    
-    
-     
-   <script>
+
+    <script>
 // URUTKAN PRODUK BERDASARKAN KATEGORI
 document.addEventListener("DOMContentLoaded", function () {
 
   const wadah = document.getElementById("produk");
 
   if (!wadah) return;
-
-  const judul = {
-    makanan: "🍗 MAKANAN",
-    fashion: "👕 FASHION",
-    kecantikan: "💄 KECANTIKAN",
-    rumah: "🏠 RUMAH",
-    elektronik: "📱 ELEKTRONIK"
-  };
 
   const urutan = [
     "makanan",
@@ -994,9 +979,17 @@ document.addEventListener("DOMContentLoaded", function () {
     wadah.querySelectorAll(".produk-card")
   );
 
-  
+  urutan.forEach(function(kategori) {
+    produk.forEach(function(item) {
+      if (item.dataset.kategori === kategori) {
+        wadah.appendChild(item);
+      }
+    });
+  });
 
-</script>
+});
+    </script>
+     
 
    <div id="keranjang">
   <h2>🛒 Keranjang</h2>
@@ -1029,7 +1022,9 @@ document.addEventListener("DOMContentLoaded", function () {
   <h2>🔥 PROMO TOKO RAFA 🔥</h2>
   <p>Temukan berbagai produk pilihan dengan harga menarik!</p>
 </div>
-      let kata = document.getElementById("cariProduk").value.toLowerCase().trim();
+      <script>
+function cariProduk() {
+  let kata = document.getElementById("cariProduk").value.toLowerCase().trim();
   let produk = document.querySelectorAll(".produk-card");
   let ditemukan = false;
 
@@ -1048,6 +1043,6 @@ document.addEventListener("DOMContentLoaded", function () {
     alert("Produk tidak ditemukan 😅");
   }
 }
-  </script>
+      </script>
 </body>
 </html>
