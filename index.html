@@ -1182,21 +1182,27 @@ function checkoutWhatsApp() {
 </div>
 
 <script>
-document.getElementById("tombolCari").addEventListener("click", function () {
+function cariProduk() {
 
   const kata = document.getElementById("searchinput").value
     .toLowerCase()
     .trim();
 
-  const produk = document.querySelectorAll(".produk-card");
+  const produk = document.querySelectorAll("#produk .produk-card");
 
   let ditemukan = false;
 
   produk.forEach(function(item) {
 
-    const isi = item.textContent.toLowerCase();
+    const namaProduk = item.querySelector("h3");
 
-    if (kata === "" || isi.includes(kata)) {
+    if (!namaProduk) return;
+
+    const nama = namaProduk.textContent
+      .toLowerCase()
+      .trim();
+
+    if (kata === "" || nama.includes(kata)) {
       item.style.display = "";
       ditemukan = true;
     } else {
@@ -1208,9 +1214,9 @@ document.getElementById("tombolCari").addEventListener("click", function () {
   if (!ditemukan && kata !== "") {
     alert("Produk tidak ditemukan 😅");
   }
-
-});
+}
 </script>
+
     <style>
 /* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
 
