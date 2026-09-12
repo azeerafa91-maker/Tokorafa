@@ -1202,17 +1202,17 @@ function checkoutWhatsApp() {
   <h2>🔥 PROMO TOKO RAFA 🔥</h2>
   <p>Temukan berbagai produk pilihan dengan harga menarik!</p>
 </div>
-      <script>
+<script>
 function cariProduk() {
   let kata = document.getElementById("cariProduk").value.toLowerCase().trim();
-  let produk = document.querySelectorAll(".produk-card");
+  let produk = document.querySelectorAll("#produk .produk-card");
   let ditemukan = false;
 
   produk.forEach(function(item) {
     let isi = item.innerText.toLowerCase();
 
     if (kata === "" || isi.includes(kata)) {
-      item.style.display = "";
+      item.style.display = "flex";
       ditemukan = true;
     } else {
       item.style.display = "none";
@@ -1223,20 +1223,7 @@ function cariProduk() {
     alert("Produk tidak ditemukan 😅");
   }
 }
-      </script>
-    <script>
-document.querySelectorAll('.produk-card a[href*="s.shopee.co.id"]').forEach(function(link) {
-  link.addEventListener('click', function() {
-    let produk = this.closest('.produk-card').querySelector('h3').textContent.trim();
-
-    if (typeof gtag === 'function') {
-      gtag('event', 'klik_produk', {
-        produk: produk
-      });
-    }
-  });
-});
-    </script>
+</script>
     <style>
 /* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
 
