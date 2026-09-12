@@ -1180,16 +1180,20 @@ function checkoutWhatsApp() {
   <h2>🔥 PROMO TOKO RAFA 🔥</h2>
   <p>Temukan berbagai produk pilihan dengan harga menarik!</p>
 </div>
+
 <script>
-function cariProduk() {
+document.getElementById("tombolCari").addEventListener("click", function () {
+
   const kata = document.getElementById("searchinput").value
     .toLowerCase()
     .trim();
 
-  const produk = document.querySelectorAll("#produk .produk-card");
+  const produk = document.querySelectorAll(".produk-card");
+
   let ditemukan = false;
 
   produk.forEach(function(item) {
+
     const isi = item.textContent.toLowerCase();
 
     if (kata === "" || isi.includes(kata)) {
@@ -1198,12 +1202,14 @@ function cariProduk() {
     } else {
       item.style.display = "none";
     }
+
   });
 
   if (!ditemukan && kata !== "") {
     alert("Produk tidak ditemukan 😅");
   }
-  }
+
+});
 </script>
     <style>
 /* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
