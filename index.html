@@ -1247,5 +1247,88 @@ document.querySelectorAll('.produk-card a[href*="s.shopee.co.id"]').forEach(func
   });
 });
     </script>
+    <style>
+/* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
+
+#produk {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+#produk .produk-card {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 12px !important;
+  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: column;
+  height: auto !important;
+}
+
+/* Ukuran gambar dibuat seragam */
+#produk .produk-card img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 180px !important;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px !important;
+}
+
+/* Judul produk */
+#produk .produk-card h3 {
+  font-size: 15px;
+  line-height: 1.3;
+  margin: 6px 0;
+}
+
+/* Deskripsi */
+#produk .produk-card p {
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 6px 0;
+}
+
+/* Tombol/link Shopee */
+#produk .produk-card > a:not(.gambar-shopee) {
+  margin-top: 8px !important;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Khusus gambar Shopee */
+#produk .produk-card .gambar-shopee {
+  width: 100%;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Khusus kategori kecantikan */
+#produk .produk-card[data-kategori="kecantikan"] {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+#produk .produk-card[data-kategori="kecantikan"] img {
+  width: 100% !important;
+  height: 180px !important;
+  margin: 0 auto 8px !important;
+}
+
+/* Tablet / laptop: 3 kolom */
+@media (min-width: 768px) {
+  #produk {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+</style>
 </body>
 </html>
