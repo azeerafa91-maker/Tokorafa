@@ -220,32 +220,37 @@ nav a {
   margin: 20px 0 5px;
      
 } 
- .produk {
-  text-align: center;
+
+  #produk {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 10px;
+  box-sizing: border-box;
+  align-items: start;
 }
-.produk-card img {
+
+#produk .produk-card {
   width: 100%;
-  max-width: 250px;
-  height: 140px;
+  max-width: none;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  align-self: start;
+}
+
+#produk .produk-card img {
+  width: 100%;
+  height: 160px;
   object-fit: cover;
   display: block;
-  margin: 10px auto;
+  margin: 5px auto;
   border-radius: 12px;
 }
 
-.produk-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.produk-card {
-  display: block;
-  height: auto;
-  }
-
-.produk-card > a:last-child button {
-  width: 100%;
-  margin-top: 10px;
+.judul-kategori {
+  grid-column: 1 / -1;
+  text-align: center;
 }
   </style>
 </head>
