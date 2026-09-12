@@ -1203,11 +1203,17 @@ function checkoutWhatsApp() {
 </div>
 
 <script>
-function cariProduk() {
+<script>
+window.cariProduk = function() {
 
-  const kata = document.getElementById("searchinput").value
-    .toLowerCase()
-    .trim();
+  const input = document.getElementById("searchinput");
+
+  if (!input) {
+    alert("Kotak pencarian tidak ditemukan.");
+    return;
+  }
+
+  const kata = input.value.toLowerCase().trim();
 
   const produk = document.querySelectorAll("#produk .produk-card");
 
@@ -1215,15 +1221,28 @@ function cariProduk() {
 
   produk.forEach(function(item) {
 
-    const namaProduk = item.querySelector("h3");
+    const namaElement = item.querySelector("h3");
+    const deskripsiElement = item.querySelector("p");
 
-    if (!namaProduk) return;
+    const nama = namaElement
+      ? namaElement.textContent.toLowerCase()
+      : "";
 
-    const nama = namaProduk.textContent
-      .toLowerCase()
-      .trim();
+    const deskripsi = deskripsiElement
+      ? deskripsiElement.textContent.toLowerCase()
+      : "";
 
-    if (kata === "" || nama.includes(kata)) {
+    const kategori = item.getAttribute("data-kategori")
+      ? item.getAttribute("data-kategori").toLowerCase()
+      : "";
+
+    const cocok =
+      kata === "" ||
+      nama.includes(kata) ||
+      deskripsi.includes(kata) ||
+      kategori.includes(kata);
+
+    if (cocok) {
       item.style.display = "";
       ditemukan = true;
     } else {
@@ -1235,7 +1254,7 @@ function cariProduk() {
   if (!ditemukan && kata !== "") {
     alert("Produk tidak ditemukan 😅");
   }
-}
+};
 </script>
 
     <style>
