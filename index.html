@@ -1307,6 +1307,86 @@ function cariProduk() {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+     /* ===== BANNER TOKO RAFA ===== */
+
+.banner-rafa {
+  text-align: center;
+  padding: 22px 15px;
+  margin: 10px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff7a00, #ffb300);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.banner-rafa h2 {
+  font-size: 30px;
+  margin: 8px 0;
+  font-weight: 800;
+}
+
+.banner-rafa h3 {
+  font-size: 17px;
+  margin: 8px 0;
+}
+
+.banner-rafa p {
+  font-size: 14px;
+  margin: 8px 0 15px;
+}
+
+.banner-badge {
+  display: inline-block;
+  background: white;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.banner-btn {
+  display: inline-block;
+  background: #fff;
+  color: #e65100;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 11px 18px;
+  border-radius: 25px;
+  margin: 5px 0 18px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.banner-menu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.banner-menu div {
+  background: rgba(255,255,255,0.9);
+  padding: 9px 3px;
+  border-radius: 12px;
+  font-size: 13px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.banner-menu div b {
+  font-size: 11px;
+}
+
+@media (max-width: 500px) {
+  .banner-rafa h2 {
+    font-size: 26px;
+  }
+
+  .banner-rafa h3 {
+    font-size: 15px;
+  }
+
+  .banner-menu {
+    gap: 6px;
+  }
+} 
 </style>
 </body>
 </html>
