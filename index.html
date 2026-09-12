@@ -1084,17 +1084,27 @@ style="display:inline-block; background:#25D366; color:white; padding:12px 20px;
   </a>
 </div>
 
-    
-    
 <script>
 let keranjang = {};
 
 document.querySelectorAll('.produk-card').forEach(function(produk) {
+
   let tombol = produk.querySelector('button');
-  let nama = produk.querySelector('h3').textContent;
-  let harga = parseInt(produk.querySelector('strong').textContent.replace(/\D/g, ''));
+  let namaElement = produk.querySelector('h3');
+  let hargaElement = produk.querySelector('strong');
+
+  // Lewati card yang tidak lengkap
+  if (!tombol || !namaElement || !hargaElement) {
+    return;
+  }
+
+  let nama = namaElement.textContent.trim();
+  let harga = parseInt(
+    hargaElement.textContent.replace(/\D/g, '')
+  );
 
   tombol.addEventListener('click', function() {
+
     if (!keranjang[nama]) {
       keranjang[nama] = {
         harga: harga,
@@ -1108,19 +1118,25 @@ document.querySelectorAll('.produk-card').forEach(function(produk) {
 });
 
 function tampilkanKeranjang() {
+
   let isi = '<h2>🛒 Keranjang</h2>';
   let total = 0;
 
   for (let nama in keranjang) {
+
     let item = keranjang[nama];
     let subtotal = item.harga * item.jumlah;
+
     total += subtotal;
 
     isi += '<p>' + nama + ' × ' + item.jumlah +
            ' — Rp' + subtotal.toLocaleString('id-ID') + '</p>';
   }
 
-  isi += '<strong>Total: Rp' + total.toLocaleString('id-ID') + '</strong>';
+  isi += '<strong>Total: Rp' +
+         total.toLocaleString('id-ID') +
+         '</strong>';
+
   isi += '<br><br>';
   isi += '<button onclick="checkoutWhatsApp()">📱 Checkout via WhatsApp</button>';
 
@@ -1128,27 +1144,32 @@ function tampilkanKeranjang() {
 }
 
 function checkoutWhatsApp() {
+
   let pesan = 'Halo Toko Rafa 👋%0A%0ASaya mau pesan:%0A';
   let total = 0;
 
   for (let nama in keranjang) {
+
     let item = keranjang[nama];
     let subtotal = item.harga * item.jumlah;
+
     total += subtotal;
 
     pesan += '- ' + nama + ' × ' + item.jumlah +
-             ' = Rp' + subtotal.toLocaleString('id-ID') + '%0A';
+             ' = Rp' + subtotal.toLocaleString('id-ID') +
+             '%0A';
   }
 
-  pesan += '%0ATotal: Rp' + total.toLocaleString('id-ID');
+  pesan += '%0ATotal: Rp' +
+           total.toLocaleString('id-ID');
 
   window.open(
     'https://wa.me/6283843837197?text=' + pesan,
     '_blank'
   );
 }
-</script>
-
+    </script>    
+    
    <div id="keranjang">
   <h2>🛒 Keranjang</h2>
   <p>Belum ada produk.</p>
