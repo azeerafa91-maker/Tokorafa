@@ -676,8 +676,7 @@ nav a {
 
    <div class="search-box">
   <input type="text" id="cariProduk" placeholder="🔎 Cari produk di Toko Rafa...">
-  <button onclick="cariProduk()">Cari</button>
-</div>
+<button onclick="jalankanPencarian()">Cari</button>
    
 <div class="kategori">
 <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
@@ -1203,13 +1202,16 @@ function checkoutWhatsApp() {
   <p>Temukan berbagai produk pilihan dengan harga menarik!</p>
 </div>
 <script>
-function cariProduk() {
-  let kata = document.getElementById("cariProduk").value.toLowerCase().trim();
-  let produk = document.querySelectorAll("#produk .produk-card");
+function jalankanPencarian() {
+  const kata = document.getElementById("cariProduk").value
+    .toLowerCase()
+    .trim();
+
+  const produk = document.querySelectorAll("#produk .produk-card");
   let ditemukan = false;
 
   produk.forEach(function(item) {
-    let isi = item.innerText.toLowerCase();
+    const isi = item.textContent.toLowerCase();
 
     if (kata === "" || isi.includes(kata)) {
       item.style.display = "flex";
