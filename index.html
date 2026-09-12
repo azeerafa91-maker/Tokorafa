@@ -675,7 +675,7 @@ nav a {
 </div> 
 
    <div class="search-box">
-  <input type="text" id="cariProduk" placeholder="🔎 Cari produk di Toko Rafa...">
+  <input type="text" id="searchinput" placeholder="🔎 Cari produk di Toko Rafa...">
   <button onclick="cariProduk()">Cari</button>
 </div>
 
@@ -1203,7 +1203,7 @@ function checkoutWhatsApp() {
   <p>Temukan berbagai produk pilihan dengan harga menarik!</p>
 </div>
 <script>
-function cariproduk() {
+function searchinput() {
   const kata = document.getElementById("cariProduk").value
     .toLowerCase()
     .trim();
