@@ -190,10 +190,12 @@ nav a {
 }
    #produk {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
   padding: 10px;
-}
+  box-sizing: border-box;
+  align-items: start;
+   }
     
 #produk .produk-card {
   margin: 0;
