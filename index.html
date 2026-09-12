@@ -1201,8 +1201,8 @@ function checkoutWhatsApp() {
   <p>Temukan berbagai produk pilihan dengan harga menarik!</p>
 </div>
 <script>
-function searchinput() {
-  const kata = document.getElementById("cariProduk").value
+function cariProduk() {
+  const kata = document.getElementById("searchinput").value
     .toLowerCase()
     .trim();
 
@@ -1223,8 +1223,7 @@ function searchinput() {
   if (!ditemukan && kata !== "") {
     alert("Produk tidak ditemukan 😅");
   }
-}
-</script>
+  }
     <style>
 /* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
 
