@@ -1148,7 +1148,7 @@ function cariProduk() {
     const isi = item.textContent.toLowerCase();
 
     if (kata === "" || isi.includes(kata)) {
-      item.style.display = "flex";
+      item.style.display = "";
       ditemukan = true;
     } else {
       item.style.display = "none";
@@ -1159,7 +1159,6 @@ function cariProduk() {
     alert("Produk tidak ditemukan 😅");
   }
   }
-</script>
     <style>
 /* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
 
