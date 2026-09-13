@@ -657,7 +657,7 @@ nav a {
 
    <div class="search-box">
   <input type="text" id="searchinput" placeholder="🔎 Cari produk di Toko Rafa...">
-  <button type="button" id="tombolCari" onclick="cariProduk()">Cari</button>
+  <button type="button" id="tombolCari" onclick="jalankanPencarian()">Cari</button>
    </div>
 <div class="kategori">
 <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
@@ -1206,7 +1206,7 @@ function checkoutWhatsApp() {
 </div>
 
 <script>
-function cariProduk() {
+function jalankanPencarian() {
 
   const input = document.getElementById("searchinput");
   const kata = input.value.toLowerCase().trim();
@@ -1221,15 +1221,17 @@ function cariProduk() {
 
     const gambar = item.querySelector("img");
     const alt = gambar ? gambar.alt.toLowerCase() : "";
+    const src = gambar ? gambar.src.toLowerCase() : "";
 
-    const kategori = item.dataset.kategori
-      ? item.dataset.kategori.toLowerCase()
+    const kategori = item.getAttribute("data-kategori")
+      ? item.getAttribute("data-kategori").toLowerCase()
       : "";
 
     const cocok =
       kata === "" ||
       teks.includes(kata) ||
       alt.includes(kata) ||
+      src.includes(kata) ||
       kategori.includes(kata);
 
     if (cocok) {
@@ -1238,7 +1240,6 @@ function cariProduk() {
     } else {
       item.style.display = "none";
     }
-
   });
 
   if (!ditemukan && kata !== "") {
