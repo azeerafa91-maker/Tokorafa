@@ -1238,15 +1238,13 @@ function checkoutWhatsApp() {
 
 
 <script>
-/* ===== SEARCH TOKO RAFA ===== */
-
 document.addEventListener("DOMContentLoaded", function () {
 
   const input = document.getElementById("searchinput");
   const tombol = document.getElementById("tombolCari");
   const pesan = document.getElementById("pesanPencarian");
 
-  function jalankanPencarian() {
+  function cariProduk() {
 
     const kata = input.value.toLowerCase().trim();
 
@@ -1254,27 +1252,16 @@ document.addEventListener("DOMContentLoaded", function () {
       "#produk .produk-card"
     );
 
-    const judulKategori = document.querySelectorAll(
-      "#produk .judul-kategori"
-    );
-
     let ditemukan = false;
 
     produk.forEach(function (item) {
 
-      const namaProduk = item.querySelector("h3");
-
-      if (!namaProduk) {
-        item.style.display = "";
-        return;
-      }
-
-      const nama = namaProduk.textContent
+      const isiProduk = item.textContent
         .toLowerCase()
         .trim();
 
-      if (kata === "" || nama.includes(kata)) {
-        item.style.display = "";
+      if (kata === "" || isiProduk.includes(kata)) {
+        item.style.display = "flex";
         ditemukan = true;
       } else {
         item.style.display = "none";
@@ -1282,46 +1269,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    /* Saat tidak mencari, tampilkan judul kategori */
     if (kata === "") {
-
-      judulKategori.forEach(function (judul) {
-        judul.style.display = "";
-      });
-
       pesan.style.display = "none";
-      return;
-    }
-
-    /* Saat mencari, sembunyikan judul kategori */
-    judulKategori.forEach(function (judul) {
-      judul.style.display = "none";
-    });
-
-    if (ditemukan) {
+    } 
+    else if (ditemukan) {
       pesan.style.display = "none";
-    } else {
+    } 
+    else {
       pesan.style.display = "block";
     }
-
   }
 
-  tombol.addEventListener("click", jalankanPencarian);
+  tombol.addEventListener("click", cariProduk);
 
   input.addEventListener("keydown", function (event) {
-
     if (event.key === "Enter") {
-      jalankanPencarian();
+      cariProduk();
     }
-
   });
 
   input.addEventListener("input", function () {
-
     if (input.value.trim() === "") {
-      jalankanPencarian();
+      cariProduk();
     }
-
   });
 
 });
@@ -1345,7 +1315,7 @@ document.addEventListener("DOMContentLoaded", function () {
   margin: 0 !important;
   padding: 12px !important;
   box-sizing: border-box;
-  display: flex !important;
+  display: flex ;
   flex-direction: column;
   height: 430px !important;
 }
