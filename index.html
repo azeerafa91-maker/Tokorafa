@@ -1203,45 +1203,20 @@ function checkoutWhatsApp() {
 </div>
 
 <script>
-window.cariProduk = function() {
+function cariProduk() {
 
   const input = document.getElementById("searchinput");
-
-  if (!input) {
-    alert("Kotak pencarian tidak ditemukan.");
-    return;
-  }
-
   const kata = input.value.toLowerCase().trim();
 
-  const produk = document.querySelectorAll("#produk .produk-card");
+  const produk = document.querySelectorAll(".produk-card");
 
   let ditemukan = false;
 
   produk.forEach(function(item) {
 
-    const namaElement = item.querySelector("h3");
-    const deskripsiElement = item.querySelector("p");
+    const teks = item.textContent.toLowerCase();
 
-    const nama = namaElement
-      ? namaElement.textContent.toLowerCase()
-      : "";
-
-    const deskripsi = deskripsiElement
-      ? deskripsiElement.textContent.toLowerCase()
-      : "";
-
-    const kategori = item.getAttribute("data-kategori")
-      ? item.getAttribute("data-kategori").toLowerCase()
-      : "";
-
-    const cocok =
-      kata === "" ||
-      nama.includes(kata) ||
-      deskripsi.includes(kata) ||
-      kategori.includes(kata);
-
-    if (cocok) {
+    if (kata === "" || teks.includes(kata)) {
       item.style.display = "";
       ditemukan = true;
     } else {
@@ -1253,13 +1228,7 @@ window.cariProduk = function() {
   if (!ditemukan && kata !== "") {
     alert("Produk tidak ditemukan 😅");
   }
-};
-</script>
-  };
-</script>
-
-<script>
-alert("JavaScript Toko Rafa aktif");
+}
 </script>
 
     <style>
