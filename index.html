@@ -1208,43 +1208,10 @@ function checkoutWhatsApp() {
 <script>
 function jalankanPencarian() {
 
-  const input = document.getElementById("searchinput");
-  const kata = input.value.toLowerCase().trim();
-
   const produk = document.querySelectorAll(".produk-card");
 
-  let ditemukan = false;
+  alert("Jumlah produk yang terbaca: " + produk.length);
 
-  produk.forEach(function(item) {
-
-    const teks = item.textContent.toLowerCase();
-
-    const gambar = item.querySelector("img");
-    const alt = gambar ? gambar.alt.toLowerCase() : "";
-    const src = gambar ? gambar.src.toLowerCase() : "";
-
-    const kategori = item.getAttribute("data-kategori")
-      ? item.getAttribute("data-kategori").toLowerCase()
-      : "";
-
-    const cocok =
-      kata === "" ||
-      teks.includes(kata) ||
-      alt.includes(kata) ||
-      src.includes(kata) ||
-      kategori.includes(kata);
-
-    if (cocok) {
-      item.style.display = "";
-      ditemukan = true;
-    } else {
-      item.style.display = "none";
-    }
-  });
-
-  if (!ditemukan && kata !== "") {
-    alert("Produk tidak ditemukan 😅");
-  }
 }
 </script>
     <style>
