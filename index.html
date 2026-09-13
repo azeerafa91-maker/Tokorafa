@@ -1275,6 +1275,11 @@ document.getElementById("searchinput").addEventListener("keydown", function(even
     cariProduk();
   }
 });
+  document.getElementById("searchinput").addEventListener("input", function() {
+  if (this.value.trim() === "") {
+    cariProduk();
+  }
+});
 </script>
     <style>
 /* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
