@@ -1208,9 +1208,13 @@ function checkoutWhatsApp() {
 <script>
 function jalankanPencarian() {
 
-  const produk = document.querySelectorAll(".produk-card");
+  const bagianProduk = document.getElementById("produk");
 
-  alert("Jumlah produk yang terbaca: " + produk.length);
+  if (bagianProduk) {
+    alert("BAGIAN PRODUK TERBACA");
+  } else {
+    alert("BAGIAN PRODUK TIDAK TERBACA");
+  }
 
 }
 </script>
