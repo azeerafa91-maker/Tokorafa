@@ -422,38 +422,52 @@ nav a {
 
 <style>
 /* ===== SEARCH TOKO RAFA ===== */
+
 .search-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  padding: 10px;
-  background: white;
-  box-sizing: border-box;
   width: 100%;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 6px;
 }
 
 .search-box input {
-  width: 70%;
-  max-width: 400px;
-  padding: 11px 14px;
-  border: 1px solid #ddd;
-  border-radius: 25px;
+  flex: 1;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 2px solid #ff7a00;
+  border-radius: 8px;
   font-size: 14px;
-  box-sizing: border-box;
   outline: none;
+  box-sizing: border-box;
+}
+
+.search-box input:focus {
+  border-color: #ff4500;
 }
 
 .search-box button {
   padding: 11px 15px;
   border: none;
-  border-radius: 25px;
+  border-radius: 8px;
+  background: #ff7a00;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 14px;
-  white-space: nowrap;
 }
-  </style>
-  <style>
+
+.search-box button:active {
+  transform: scale(0.97);
+}
+
+#pesanPencarian {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px;
+  display: none;
+  }
   .kategori {
   display: flex;
   gap: 8px;
@@ -655,10 +669,27 @@ nav a {
 
 </div> 
 
-   <div class="search-box">
-  <input type="text" id="searchinput" placeholder="🔎 Cari produk di Toko Rafa...">
-  <button type="button" id="tombolCari" onclick="jalankanPencarian()">Cari</button>
-   </div>
+  <!-- ===== SEARCH TOKO RAFA ===== -->
+
+<div class="search-box">
+
+  <input
+    type="text"
+    id="searchinput"
+    placeholder="🔎 Cari produk di Toko Rafa..."
+    autocomplete="off"
+  >
+
+  <button type="button" id="tombolCari">
+    Cari
+  </button>
+
+</div>
+
+<div id="pesanPencarian">
+  Produk tidak ditemukan
+</div>
+  
 <div class="kategori">
 <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
   🍗 Makanan
@@ -1205,38 +1236,95 @@ function checkoutWhatsApp() {
   <p>Temukan berbagai produk pilihan dengan harga menarik!</p>
 </div>
 
+
 <script>
-<script>
-function jalankanPencarian() {
+/* ===== SEARCH TOKO RAFA ===== */
+
+document.addEventListener("DOMContentLoaded", function () {
 
   const input = document.getElementById("searchinput");
-  const kata = input.value.toLowerCase().trim();
+  const tombol = document.getElementById("tombolCari");
+  const pesan = document.getElementById("pesanPencarian");
 
-  const produk = document.querySelectorAll(".produk-card");
+  function jalankanPencarian() {
 
-  let ditemukan = false;
+    const kata = input.value.toLowerCase().trim();
 
-  produk.forEach(function(item) {
+    const produk = document.querySelectorAll(
+      "#produk .produk-card"
+    );
 
-    const teks = item.textContent.toLowerCase();
+    const judulKategori = document.querySelectorAll(
+      "#produk .judul-kategori"
+    );
 
-    if (kata === "" || teks.includes(kata)) {
+    let ditemukan = false;
 
-      item.style.setProperty("display", "flex", "important");
-      ditemukan = true;
+    produk.forEach(function (item) {
 
+      const namaProduk = item.querySelector("h3");
+
+      if (!namaProduk) {
+        item.style.display = "";
+        return;
+      }
+
+      const nama = namaProduk.textContent
+        .toLowerCase()
+        .trim();
+
+      if (kata === "" || nama.includes(kata)) {
+        item.style.display = "";
+        ditemukan = true;
+      } else {
+        item.style.display = "none";
+      }
+
+    });
+
+    /* Saat tidak mencari, tampilkan judul kategori */
+    if (kata === "") {
+
+      judulKategori.forEach(function (judul) {
+        judul.style.display = "";
+      });
+
+      pesan.style.display = "none";
+      return;
+    }
+
+    /* Saat mencari, sembunyikan judul kategori */
+    judulKategori.forEach(function (judul) {
+      judul.style.display = "none";
+    });
+
+    if (ditemukan) {
+      pesan.style.display = "none";
     } else {
+      pesan.style.display = "block";
+    }
 
-      item.style.setProperty("display", "none", "important");
+  }
 
+  tombol.addEventListener("click", jalankanPencarian);
+
+  input.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter") {
+      jalankanPencarian();
     }
 
   });
 
-  if (!ditemukan && kata !== "") {
-    alert("Produk tidak ditemukan 😅");
-  }
-}
+  input.addEventListener("input", function () {
+
+    if (input.value.trim() === "") {
+      jalankanPencarian();
+    }
+
+  });
+
+});
 </script>
     <style>
 /* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
