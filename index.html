@@ -1209,22 +1209,42 @@ function checkoutWhatsApp() {
 <script>
 function jalankanPencarian() {
 
+  const input = document.getElementById("searchinput");
+  const kata = input.value.toLowerCase().trim();
+
   const produk = document.querySelectorAll(".produk-card");
 
-  let cocok = 0;
+  let ditemukan = false;
 
   produk.forEach(function(item) {
 
     const teks = item.textContent.toLowerCase();
 
-    if (teks.includes("kaos")) {
-      cocok++;
+    const gambar = item.querySelector("img");
+    const alt = gambar ? gambar.alt.toLowerCase() : "";
+
+    const kategori = item.getAttribute("data-kategori")
+      ? item.getAttribute("data-kategori").toLowerCase()
+      : "";
+
+    const cocok =
+      kata === "" ||
+      teks.includes(kata) ||
+      alt.includes(kata) ||
+      kategori.includes(kata);
+
+    if (cocok) {
+      item.classList.remove("sembunyi-search");
+      ditemukan = true;
+    } else {
+      item.classList.add("sembunyi-search");
     }
 
   });
 
-  alert("Produk yang mengandung kata KAOS: " + cocok);
-
+  if (!ditemukan && kata !== "") {
+    alert("Produk tidak ditemukan 😅");
+  }
 }
 </script>
     <style>
