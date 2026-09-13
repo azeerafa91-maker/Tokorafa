@@ -1481,7 +1481,26 @@ document.getElementById("searchinput").addEventListener("keydown", function(even
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+#produk .produk-card {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 8px !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 390px !important;
+}
 
+#produk .produk-card img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 150px !important;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 8px !important;
+}
 </style>
 </body>
 </html>
