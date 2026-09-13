@@ -1216,7 +1216,20 @@ function cariProduk() {
 
     const teks = item.textContent.toLowerCase();
 
-    if (kata === "" || teks.includes(kata)) {
+    const gambar = item.querySelector("img");
+    const alt = gambar ? gambar.alt.toLowerCase() : "";
+
+    const kategori = item.dataset.kategori
+      ? item.dataset.kategori.toLowerCase()
+      : "";
+
+    const cocok =
+      kata === "" ||
+      teks.includes(kata) ||
+      alt.includes(kata) ||
+      kategori.includes(kata);
+
+    if (cocok) {
       item.style.display = "";
       ditemukan = true;
     } else {
@@ -1230,7 +1243,6 @@ function cariProduk() {
   }
 }
 </script>
-
     <style>
 /* ===== PERBAIKAN GRID PRODUK TOKO RAFA ===== */
 
