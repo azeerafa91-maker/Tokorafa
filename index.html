@@ -1238,63 +1238,42 @@ function checkoutWhatsApp() {
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
+function cariProduk() {
   const input = document.getElementById("searchinput");
-  const tombol = document.getElementById("tombolCari");
+  const kata = input.value.toLowerCase().trim();
+
+  const produk = document.querySelectorAll(".produk-card");
+
+  let ditemukan = false;
+
+  produk.forEach(function(item) {
+    const isi = item.textContent.toLowerCase();
+
+    if (kata === "" || isi.includes(kata)) {
+      item.style.display = "";
+      ditemukan = true;
+    } else {
+      item.style.display = "none";
+    }
+  });
+
   const pesan = document.getElementById("pesanPencarian");
 
-  function cariProduk() {
-
-    const kata = input.value.toLowerCase().trim();
-
-    const produk = document.querySelectorAll(
-      "#produk .produk-card"
-    );
-    alert("Jumlah produk terbaca: " + produk.length
-
-    let ditemukan = false;
-
-    produk.forEach(function (item) {
-
-      const isiProduk = item.textContent
-        .toLowerCase()
-        .trim();
-
-      if (kata === "" || isiProduk.includes(kata)) {
-        item.style.display = "flex";
-        ditemukan = true;
-      } else {
-        item.style.display = "none";
-      }
-
-    });
-
-    if (kata === "") {
-      pesan.style.display = "none";
-    } 
-    else if (ditemukan) {
-      pesan.style.display = "none";
-    } 
-    else {
+  if (pesan) {
+    if (kata !== "" && !ditemukan) {
       pesan.style.display = "block";
+    } else {
+      pesan.style.display = "none";
     }
   }
+}
 
-  tombol.addEventListener("click", cariProduk);
+document.getElementById("tombolCari").addEventListener("click", cariProduk);
 
-  input.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      cariProduk();
-    }
-  });
-
-  input.addEventListener("input", function () {
-    if (input.value.trim() === "") {
-      cariProduk();
-    }
-  });
-
+document.getElementById("searchinput").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    cariProduk();
+  }
 });
 </script>
     <style>
