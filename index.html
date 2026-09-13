@@ -1220,24 +1220,15 @@ function jalankanPencarian() {
 
     const teks = item.textContent.toLowerCase();
 
-    const gambar = item.querySelector("img");
-    const alt = gambar ? gambar.alt.toLowerCase() : "";
+    if (kata === "" || teks.includes(kata)) {
 
-    const kategori = item.getAttribute("data-kategori")
-      ? item.getAttribute("data-kategori").toLowerCase()
-      : "";
-
-    const cocok =
-      kata === "" ||
-      teks.includes(kata) ||
-      alt.includes(kata) ||
-      kategori.includes(kata);
-
-    if (cocok) {
-      item.classList.remove("sembunyi-search");
+      item.style.setProperty("display", "flex", "important");
       ditemukan = true;
+
     } else {
-      item.classList.add("sembunyi-search");
+
+      item.style.setProperty("display", "none", "important");
+
     }
 
   });
