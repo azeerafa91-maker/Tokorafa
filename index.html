@@ -1208,13 +1208,21 @@ function checkoutWhatsApp() {
 <script>
 function jalankanPencarian() {
 
-  const bagianProduk = document.getElementById("produk");
+  const produk = document.querySelectorAll(".produk-card");
 
-  if (bagianProduk) {
-    alert("BAGIAN PRODUK TERBACA");
-  } else {
-    alert("BAGIAN PRODUK TIDAK TERBACA");
-  }
+  let cocok = 0;
+
+  produk.forEach(function(item) {
+
+    const teks = item.textContent.toLowerCase();
+
+    if (teks.includes("kaos")) {
+      cocok++;
+    }
+
+  });
+
+  alert("Produk yang mengandung kata KAOS: " + cocok);
 
 }
 </script>
