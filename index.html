@@ -675,6 +675,34 @@ nav a {
 .kategori-atas {
   scrollbar-width: none;
   }
+  /* ===== KATEGORI HORIZONTAL ===== */
+.kategori {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px 6px;
+  margin: 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+.kategori::-webkit-scrollbar {
+  display: none;
+}
+
+.kategori button {
+  flex: 0 0 auto;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 20px;
+  background: #ff9800;
+  color: white;
+  font-weight: bold;
+  white-space: nowrap;
+  }
 </style>
 
   
@@ -756,7 +784,6 @@ nav a {
   <button onclick="location.href='#makanan'">🍗 Makanan</button>
   <button onclick="location.href='#kecantikan'">💄 Kecantikan</button>
 </div>
-
    <div class="produk" id="produk">
    <h2 class="judul-kategori">🍗 MAKANAN</h2>  
     <div class="produk-card" id="makanan" data-kategori="makanan">
@@ -1105,7 +1132,7 @@ style="display:inline-block; background:#25D366; color:white; padding:12px 20px;
 
 
 <!-- PARFUM -->
-<div class="produk-card" data-kategori="kecantikan">
+<div class="produk-card" id="kecantikan" data-kategori="kecantikan">
   <a href="https://s.shopee.co.id/40gMNTpkhP" target="_blank" class="gambar-shopee">
     <img src="parfum.jpeg.png" alt="Parfum Wanita Inspired 35ml" width="250">
   </a>
