@@ -644,6 +644,37 @@ nav a {
   box-sizing: border-box;
   margin-top: 15px;
   }
+  /* ===== KATEGORI ATAS MENDATAR ===== */
+.kategori-atas {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 10px;
+  padding: 10px 8px;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+
+.kategori-atas button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Hilangkan scrollbar di HP */
+.kategori-atas::-webkit-scrollbar {
+  display: none;
+}
+
+.kategori-atas {
+  scrollbar-width: none;
+  }
 </style>
 
   
@@ -690,14 +721,15 @@ nav a {
   Produk tidak ditemukan
 </div>
   
-<div class="kategori">
-<button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
-  🍗 Makanan
-</button>
-  
-  <button onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
-  👕 Fashion
-</button>
+<div class="kategori kategori-atas">
+
+  <button onclick="document.getElementById('makanan').scrollIntoView({behavior:'smooth'})">
+    🍗 Makanan
+  </button>
+
+  <button onclick="document.getElementById('fashion').scrollIntoView({behavior:'smooth'})">
+    👕 Fashion
+  </button>
 
   <button onclick="document.getElementById('elektronik').scrollIntoView({behavior:'smooth'})">
     📱 Elektronik
@@ -712,7 +744,6 @@ nav a {
   </button>
 
 </div>
-    
   <header>
     
     <h1>TOKO RAFA</h1>
