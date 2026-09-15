@@ -3037,5 +3037,14 @@ document.getElementById("searchinput").addEventListener("keydown", function(even
   width: 100%;
   box-sizing: border-box;
 }
+    <script>
+function catatKlikProduk(namaProduk) {
+  if (typeof gtag === "function") {
+    gtag('event', 'klik_produk', {
+      nama_produk: namaProduk
+    });
+  }
+}
+</script>
 </body>
 </html>
