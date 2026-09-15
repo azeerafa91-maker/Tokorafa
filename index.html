@@ -3038,13 +3038,31 @@ document.getElementById("searchinput").addEventListener("keydown", function(even
   box-sizing: border-box;
 }
     <script>
-function catatKlikProduk(namaProduk) {
+document.addEventListener("click", function(e) {
+
+  const link = e.target.closest(".produk-card a");
+
+  if (!link) return;
+
+  const produk = link.closest(".produk-card");
+
+  if (!produk) return;
+
+  const nama = produk.querySelector("h3")
+    ? produk.querySelector("h3").innerText.trim()
+    : "Produk Tanpa Nama";
+
+  const kategori = produk.dataset.kategori || "Tidak Ada Kategori";
+
   if (typeof gtag === "function") {
-    gtag('event', 'klik_produk', {
-      nama_produk: namaProduk
+    gtag("event", "klik_produk", {
+      nama_produk: nama,
+      kategori_produk: kategori,
+      link_produk: link.href
     });
   }
-}
+
+});
 </script>
 </body>
 </html>
