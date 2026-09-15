@@ -12,6 +12,25 @@ noqindek.html
 
   gtag('config', 'G-RFZZJPC41Z');
 </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".produk-card a, .produk-card button").forEach(function (elemen) {
+
+    elemen.addEventListener("click", function () {
+      const kartu = elemen.closest(".produk-card");
+      const judul = kartu ? kartu.querySelector("h3, h2") : null;
+      const namaProduk = judul ? judul.textContent.trim() : "Produk tidak diketahui";
+
+      if (typeof gtag === "function") {
+        gtag("event", "klik_produk", {
+          nama_produk: namaProduk
+        });
+      }
+    });
+
+  });
+});
+  </script>
 
 <!-- SEO Toko Rafa -->
 <title>Toko Rafa Online - Toko Online Produk Pilihan</title>
