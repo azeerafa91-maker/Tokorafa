@@ -3080,12 +3080,63 @@ function cariProduk() {
 
   const produk = document.querySelectorAll(".produk-card");
 
+  // Kata yang dianggap berhubungan
+  const sinonim = {
+    "baju": ["baju", "kaos", "kemeja", "dress", "gamis", "jaket", "setelan"],
+    "kaos": ["kaos", "baju"],
+    
+    "sepatu": ["sepatu", "sneakers", "slip on", "sandal"],
+    "sneakers": ["sneakers", "sepatu"],
+    "sandal": ["sandal", "sepatu"],
+
+    "kecantikan": [
+      "kecantikan", "deodorant", "nivea", "rexona",
+      "parfum", "lipstick", "lipstik", "cushion",
+      "sabun", "facial", "cream"
+    ],
+
+    "makanan": [
+      "makanan", "ayam", "ikan", "crispy",
+      "kentucky", "bakar"
+    ],
+
+    "elektronik": [
+      "elektronik", "speaker", "headset", "kabel",
+      "bluetooth", "vacuum", "charger"
+    ],
+
+    "rumah": [
+      "rumah", "rak", "tumbler", "termos",
+      "parutan", "mukena", "sajadah"
+    ]
+  };
+
   let ditemukan = false;
 
   produk.forEach(function(item) {
     const isi = item.textContent.toLowerCase();
 
-    if (kata === "" || isi.includes(kata)) {
+    let cocok = false;
+
+    if (kata === "") {
+      cocok = true;
+    } else {
+      // Cari kata yang diketik
+      if (isi.includes(kata)) {
+        cocok = true;
+      }
+
+      // Cari kata yang berhubungan
+      if (sinonim[kata]) {
+        sinonim[kata].forEach(function(kunci) {
+          if (isi.includes(kunci)) {
+            cocok = true;
+          }
+        });
+      }
+    }
+
+    if (cocok) {
       item.style.display = "";
       ditemukan = true;
     } else {
@@ -3111,7 +3162,8 @@ document.getElementById("searchinput").addEventListener("keydown", function(even
     cariProduk();
   }
 });
-  document.getElementById("searchinput").addEventListener("input", function() {
+
+document.getElementById("searchinput").addEventListener("input", function() {
   if (this.value.trim() === "") {
     cariProduk();
   }
