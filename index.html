@@ -856,11 +856,17 @@ body {
   margin-top: 8px;
   }
   
+
 /* MENU KATEGORI GESER KE SAMPING */
 .kategori {
   display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: flex-start;
   gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
@@ -868,6 +874,7 @@ body {
   margin: 0 0 12px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  touch-action: pan-x;
 }
 
 .kategori::-webkit-scrollbar {
@@ -876,8 +883,10 @@ body {
 
 .kategori button {
   flex: 0 0 auto;
+  width: auto;
   white-space: nowrap;
   }
+  
   
 </style>
 
