@@ -856,6 +856,29 @@ body {
   margin-top: 8px;
   }
   
+/* MENU KATEGORI GESER KE SAMPING */
+.kategori {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.kategori::-webkit-scrollbar {
+  display: none;
+}
+
+.kategori button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  }
+  
 </style>
 
   
